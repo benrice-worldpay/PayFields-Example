@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <!-- Be sure to set the proper url-->
+  <!-- Sandbox URL -->
+  <script type="text/javascript" src="https://test-api.payrix.com/payFieldsScript"></script>
+  <!-- Production URL -->
+<!-- <script type="text/javascript" src="https://api.payrix.com/payFieldsScript"></script> -->
+  <title>Payfields Testing</title>
+  <style media="screen">
+    #button {
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      width: 150px;
+      outline: none;
+      height: 30px;
+      background-color: rgb(69,67,67);
+      color: white;
+    }
+    #swipe {
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      width: 150px;
+      outline: none;
+      height: 30px;
+      background-color: rgb(0,0,0);
+      color: white;
+    }
+    /*
+       Recommended minimum div sizes to properly display iframes. We need to
+       set div height and width when passing custom styles. When no custom
+       styles are passed then it is automatically set to optimal height and
+       width
+    */
+    .form-row {
+      height: 73px;
+      width: 300px;
+    }
+    .address-row {
+      height: 438px;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+   <div>
+    <label for="number">
+      Number:
+    </label>
+    <!-- Div for number field iframe  -->
+    <div id="number" class="form-row">
+    </div>
+  </div>
+  <div >
+    <label for="expiration">
+      Expiration:
+    </label>
+    <!-- Div for expiration field iframe -->
+    <div id="expiration" class="form-row">
+    </div>
+  </div>
+  <div>
+    <label for="cvv">
+      CVV:
+    </label>
+    <!-- Div for cvv field iframe -->
+    <div id="cvv" class="form-row">
+    </div>
+  </div>
+  <div>
+    <label for="name">
+      Name:
+    </label>
+    <!-- Div for name field iframe  -->
+    <div id="name" class="form-row">
+    </div>
+  </div>
+  <div>
+    <label for="address">
+      <!-- Address: -->
+    </label>
+    <!-- Div for address field iframe  -->
+    <div id="address" class="address-row">
+    </div>
+  </div>
+  <div class="button-container">
+    <button type="button" id="button" name="Submit">Submit</button>
+    <button id="swipe" type="button" name="button">Swipe</button>
+  </div>
+
+  <script>
+  // Api key
+  PayFields.config.apiKey = "1446620766baada652f2efde74cdb672";
+  // Merchant id
+  PayFields.config.merchant = "t1_mer_63daaa8ed8a0d3ad029af7d";
+  // Option to Enable swipe
+  //PayFields.config.swipe = true;
+  // Set the amount in cents on load. This can be set to null and modified
+  // onClick or onEdit
+  PayFields.config.amount = '0';
+  // Option to create token while also a transaction. Remove this line to run a sale
+ PayFields.config.mode = 'txnToken'; 
+  // Setting Transaction type to auth. Remove this line to run a full sale
+ //PayFields.config.txnType = 'auth';
+ // Set this to use Payfields to ONLY generate a token.
+ //PayFields.config.txnType = 'token';
+
+ // To pass in an address for a transaction, use the below.
+
+ // Fields address, city, state, zip, email, and phone will only be set
+ // if there are no address fields setup
+
+ // Fields address2, country, and company will always be set regardless
+ // if address fields are setup since they are considered extra billing
+ // address fields.
+
+PayFields.config.billingAddress = {
+	 address: '123 Madison Street',
+	 city: 'New York',
+	 state: 'NY',
+	 zip: '12345',
+	 email: 'test@test.com',
+	 phone: '2223456789',
+	 address2: 'suite 555',
+	 company: 'Essential Co',
+	 country: 'USA'
+ };
+
+  // Fields that will be used, each field will be passed as an object
+  // the type of field and element needs to be passed. Values are optional
+  // and those inputs will be filled with the values, they will be
+  // disabled
+  PayFields.fields = [
+    {
+      type: "number",
+      element: "#number",
+      values: {number: "4242424242424242"}
+    },
+    {
+      type: "cvv",
+      element: "#cvv",
+    },
+    {
+      type: "name",
+      element: "#name",
+    },
+
+  //{
+  //     type: "address",
+  //      element: "#address",
+  //},
+    {
+      type: "expiration",
+      element: "#expiration",
+    }
+  ];
+  // Passing Custom Styles. We pass a style object with the class(es) to be
+  // styled. Specific classes such as .number have priority over more generic
+  // classes such as .input . In other words classes will stack on each other
+  // however in case of same property on both classes are to be styled then
+  // class with highest priority will overwrite the other. All classes will be
+  // described further below
+  PayFields.customizations = {
+    style: {
+      // All address fields class.
+      ".address-input": {
+        borderColor: "rgb(119,136,153)",
+        borderStyle: "solid",
+        borderBottomWidth: "1px"
+      },
+      // All fields
+      ".input": {
+        borderColor: "rgb(69,67,67)",
+        borderStyle: "solid",
+        borderBottomWidth: "1px"
+      },
+      // All error spans
+      ".form-error": {
+        color: "rgb(255, 0, 255)",
+        height: "20"
+       //borderBottomWidth: "100px"
+      },
+      // Address error spans
+      ".address-form-error": {
+        color: "rgb(0,139,139)"
+      }
+    }
+  };
+
+  // This would be handled automatically if a button element is passed to
+  // Payfields.button
+  $("#button").on("click", function(){
+    // Disable the button to avoid multiple calls
+    $(this).prop("disabled", true);
+    // Submit
+    PayFields.submit();
+  });
+
+  // This would be handled automatically if a button element is passed to
+  // Payfields.swipeButton
+  $("#swipe").on("click", function(){
+    // Swipe
+    PayFields.swipePopup();
+  });
+
+  // On validation error(s), this would handled automatically if an button
+  // element is passed to Payfields.button
+  PayFields.onValidationFailure = function() {
+    // Enable the button to resubmit
+    $("#button").prop("disabled", false);
+  }
+
+  // On API error(s), this would handled automatically if an button element is
+  // passed to Payfields.button
+  PayFields.onFailure = function() {
+    // We will flash error response on button
+    $("#button").text("Error");
+    $("#button").css(
+      {"backgroundColor": "rgb(138,15,15)", "transition": "2s"}
+    );
+    // Fields are automatically cleared on success. However, We may
+    // clear all fields, or specific field(s) manually. To clear all fields
+    // we need to call clearFields without passing any parameter.
+    PayFields.clearFields();
+    // To clear one or more fields we need to pass an array to clearfields.
+    // Possible fields to clear are: number, cvv, expiration, name, and address. 
+    // Payfields.clearFields(['number', 'cvv', 'expiration']);
+
+    setTimeout(function() {
+      $("#button").text("Submit");
+      $("#button").css(
+        {"backgroundColor": ""}
+      );
+      // Enable button to resubmit
+      $("#button").prop("disabled", false);
+    }, 2000);
+  }
+
+  // On Success, display Success and re-enable button
+  // This would handled automatically if an button element is passed to
+  // Payfields.button
+  PayFields.onSuccess = function(response) {
+    // We will flash success response on button and clear the iframe
+    // inputs
+    $("#button").text("Success");
+    $("#button").css(
+      {"backgroundColor": "rgb(79,138,16)", "transition": "2s"}
+    );
+    setTimeout(function() {
+      $("#button").text("Submit");
+      $("#button").css(
+        {"backgroundColor": ""}
+      );
+      $("#button").prop("disabled", false);
+    }, 2000);
+    console.log("it was successful");
+    console.log(response)
+  }
+  /*
+    All available Classes:
+    '.input'              | All fields,
+    '.number'             | Number field,
+    '.expiration'         | Expiration field,
+    '.cvv'                | Cvv field,
+    '.name'               | Name field,
+    '.address-input'      | All address fields,
+    '.address1'           | Address1 field,
+    '.city'               | City field,
+    '.state'              | State field,
+    '.zip'                | Zip field,
+    '.email'              | Email field,
+    '.phone'              | Phone field,
+    '.form-error'         | All error spans,
+    '.number-error'       | Number error span,
+    '.expiration-error'   | Expiration error span,
+    '.cvv-error'          | Cvv error span ,
+    '.name-error'         | Name error span,
+    '.address-form-error' | All Address error spans,
+    '.address1-error'     | Address1 error span,
+    '.city-error'         | City error span,
+    '.state-error'        | State error span,
+    '.zip-error'          | Zip error span,
+    '.email-error'        | Email error span,
+    '.phone-error'        | Phone error span
+  */
+  </script>
+</body>
+</html>

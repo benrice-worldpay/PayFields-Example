@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html *
+      {
+        font-size: 1em;
+        color: #000;
+        font-family: Arial;
+      } 
+    </style>
+    <style>
+      .relative
+      {
+        position:relative;
+      }
+      .Mett5 {
+          box-sizing: border-box;
+          height: 5rem;
+          overflow: hidden;
+          overflow-x: hidden;
+          overflow-y: hidden;
+          z-index: 3;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: 0 15px;
+      }
+      #pluto_top
+      {
+        box-sizing: border-box;
+        color:black;
+        display:flex;
+        font-size: 16px;
+        padding-left: 20px;
+        padding-top: 20px important!;
+        position:relative;
+        width: 100%;
+      }
+
+      #logo
+      {
+        position:relative;
+      }
+
+      #secure-checkout
+      {
+        align-items: center;
+        display: flex;
+        font-weight: bold;
+        padding-left: 20px;
+      }
+      .NyRch {
+          display: none;
+          position: absolute;
+      }
+      .hOrCs {
+          margin: auto;
+          max-width: 1024px;
+          padding-top: 20px;
+      }
+      main
+      {
+        background-color: white;
+        display: flex;
+        width:100%;
+      }
+      .content
+      {
+        background-color: white;
+        display:flex;
+        font-weight: 400;
+        line-height: 24px;
+        position: relative;
+      }
+    </style>
+    <style>
+      #main_order
+      {
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgb(240, 240, 240);
+        width:100%;
+      }
+    </style>
+    <style>
+      #order
+      {
+        padding-top: 20px;
+        max-width: 1024px;
+        display:flex;
+      }
+      </style>
+      <style>
+      #order_left
+      {
+        padding-top: 20px;
+        max-width: 1024px;
+        flex-basis: 60%;
+      }
+      #checkout
+      {
+        background-color: white;
+        padding-top: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+      #checkout h1
+      {
+        font-size: 24px;
+      }
+      #edit-shopping-bag
+      {
+        margin-left:2px;
+        margin-top:2px;
+      }
+      #shipping
+      {
+        background-color: white;
+        margin-bottom: 15px;
+        padding-bottom: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top:20px;
+      }
+      #shipping-label
+      {
+        height:200px;
+        margin-bottom: 15px;
+        padding-bottom: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top:20px;
+      }
+      /* #product {
+        display: flex;
+      } */
+      h2 { 
+        font-size:24px;
+        margin-bottom:5px;
+       }
+      #product-image {
+        margin-top:10px;
+        margin-left:5px;
+      }
+      #items-summary
+      {
+        background-color: white;
+        margin-bottom: 15px;
+        padding-bottom: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top:20px;
+      }
+      #items-list
+      {
+        margin-top:25px;
+        display:flex;
+      }
+      #bag-description {
+        margin-left: 40px;
+        margin-bottom: 15px;
+      }
+      </style>
+      <style>
+        #order-right {
+          padding-top: 20px;
+          padding-right:30px;
+          flex-basis:40%;
+          margin-left:20px;
+        }
+        #order-summary {
+          background-color: white;
+          margin-bottom:15px;
+          padding-bottom:20px;
+          padding-left:20px;
+          padding-right:30px;
+          padding-top:20px;
+        }
+        #order-summary-content {
+          font-weight:400;
+        }
+        .items-label {
+          font-size:18px;
+        }
+        .float-right
+        {
+          float: right;
+        }
+        .pluto {
+          margin-bottom: 15px;
+        }
+        #payment {
+          background-color: white;
+          margin-bottom:15px;
+          padding-bottom:20px;
+          padding-left:20px;
+          padding-right:30px;
+          padding-top:20px;
+        }
+        #payment-content {
+          font-weight:400;
+        }
+        button {
+          background-color:black;
+          color:white;
+          cursor:pointer;
+          flex-direction: row;
+          font-size:13px;
+          height:40px;
+          line-height:15px;
+          margin-top:15px;
+          outline-color:gray;
+          padding-left:30px;
+          padding-right:30px;
+          text-align:center;
+          width:100%;
+        }
+        button:hover { background-color: rgb(9, 75, 184); }
+      </style>
+      <style  media="screen">
+        .form-row {
+          height: 20px;
+          width: 300px;
+        }
+        .address-row {
+          height: 300px;
+          width: 300px;
+        }
+      </style>
+      
+    </head>
+  </head>
+  <body>
+    <div class="Mett5">
+      <div id="pluto_top">
+        <div id="logo"><img src="images/SurfandSk2i.jpg" height="80" /></div>
+        <div id="secure-checkout">Secure Checkout</div>
+      </div>
+    </div>
+    <main>
+      <section class="content">
+        <div class="relative">
+          <div class="NyRch"></div>
+          <section class="hOrCs">
+          <section id="main_order">
+            <div id="order">
+              <div id="order_left">
+                <div id="checkout">
+                  <h1>Checkout</h1>
+                  <div id="edit-shopping-bag">
+                  Shopping Bag Placeholder
+                  </div>
+                </div>
+                <div id="shipping">
+                  <div id="product">
+                    <h2>Shipping</h2>
+                    Benjamin Rice<br/>
+                    61 S 5TH AVE<br/>
+                    BRIGHTON, CO 80601-2105<br/>
+                    Wed, Jun 19–Mon, Jun 24<br/>
+                    Free—exclusions apply
+                  </div>
+                </div>
+                <div id="items-summary">
+                  <h2>Your Items</h2>
+                  <div id="items-list">
+                    <div><img alt="leather bag" src="images/leatherBag.png" /></div>
+                    <div id="bag-description">
+                      Our best leather bag<br/>
+                      Color: tan<br/>
+                      Qty: 1
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="order-right">
+                <div id="order-summary">
+                  <div id="order-summary-content">
+                    <h2>Order summary</h2>
+                    <div class="items-label">
+                      Your Items
+                      <span class="float-right">$833.00</span>
+                    </div>
+                    <div>
+                      Shipping
+                      <span class="float-right">Free</span>
+                    </div>
+                    <div>
+                      Tax
+                      <span class="float-right">$39.57</span>
+                    </div>
+                    <hr class="pluto"/>
+                    <div class="items-label">
+                      Estimated Total
+                      <span class="float-right">
+                        $872.57
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div id="payment">
+                  <div id="payment-content">
+                    <h2>Payment</h2>
+                    <div>
+                      <div>
+                        <label for="number">Number:</label>
+                        <div id="number"></div>
+                      </div>
+                    <div>
+                        <label for="expiration">Expiration:</label>
+                        <div id="expiration"></div>
+                    </div>
+                    <div>
+                        <label for="cvv">CVV:</label>
+                        <div id="cvv"></div>
+                    </div>
+                    <div>
+                        <label for="name">Name:</label>
+                        <div id="name"></div>
+                    </div>
+                    <!-- <div>
+                        <label for="address">Address:</label>
+                        <div id="address"></div>
+                    </div> -->
+                    <button type="button" id="submitBtn" class="btn">Submit Order</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+      </div>
+      </section>
+    </main>
+    <script type="text/javascript" src="https://test-api.payrix.com/payFieldsScript"></script>
+    <script> // Authentication
+      PayFields.config.apiKey = '<Add Your Own API Key>';
+      PayFields.config.merchant = '<Add the Merchant ID>';
+    </script>
+    <script> // Transaction Settings
+      PayFields.config.mode = 'txn';
+      PayFields.config.txnType = 'sale';
+      PayFields.config.amount = 1000;
+    </script>
+    <script> // Form Field Connections
+    PayFields.fields = [
+       {
+          type: "number",
+          element: "#number",
+       },
+       {
+          type: "name",
+          element: "#name",
+       },
+       {
+          type: "cvv",
+          element: "#cvv",
+       },
+       {
+          type: "expiration",
+          element: "#expiration",
+       },
+      //  {
+      //     type: "address",
+      //     element: "#address",
+      //  }
+    ];
+/*     PayFields.customizations.style = { 
+      // All address fields class.
+      ".address-input": {
+        borderColor: "rgb(119,136,153)",
+        borderStyle: "solid",
+        borderBottomWidth: "1px"
+      },
+      // All fields
+      ".input": {
+        borderColor: "rgb(69,67,67)",
+        borderStyle: "solid",
+        borderBottomWidth: "1px",
+      },
+      // All error spans
+      ".form-error": {
+        color: "rgb(0, 0, 255)",
+        height: "20px",
+        // borderBottomWidth: "100px"
+      },
+      // Address error spans
+      ".address-form-error": {
+        color: "rgb(0,139,139)"
+      }
+    } */
+    PayFields.customizations.styles = {
+        display: "block",
+        width: "100%",
+        padding: "0.375rem 0.75rem", /* Adjust padding as needed */
+        fontSize: "0.875rem", /* Adjust font size as needed */
+        fontWeight: "400",
+        lineHeight: "1",
+        backgroundColor: "#fff",
+        backgroundClip: "padding-box",
+        border: "1px solid #ced4da", /* You can customize the border color */
+        borderRadius: "0.25rem", /* Adjust border-radius as needed */
+        transition: "border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out",
+        borderBottomWidth: "100px",
+    };
+  </script>
+  <script> // Submit Button Function
+    document.querySelector('#submitBtn').addEventListener('click', function() {
+      document.body.style.cursor = "wait";
+       PayFields.submit()
+    });
+  </script>
+  <script> // Success Callback
+    PayFields.onSuccess = function(response) {
+       console.log(response)
+      // alert('Payment Successful! ' + response)
+      var button = document.getElementById('submitBtn');
+      button.style.background='green';
+      button.textContent = "Order Successful";
+      document.body.style.cursor = "none";
+    }
+ </script>
+ <script> // Failure Callback
+    PayFields.onFailure = function(err) {
+       console.log(err)
+       alert('Payment failed. Verify your payment method.')
+    }
+ </script>
+ 
+  </body>
+</html>

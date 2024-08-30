@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <style>
+            #content {
+                width: 450px;
+                font-family: "Brandon Text", Arial, sans-serif;
+                font-size: 16px;
+                color: rgb(25, 26, 27);
+            }
+            #dialog {
+                margin-bottom: 10vh;
+                margin-top: 10vh;
+                padding: 40px;
+                border-style: solid;
+                border-width: 1px;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px 0px;
+            }
+            #note {
+                font-size:14px;
+                margin-bottom:20px;
+            }
+            #fields {
+                font-size:16px;
+            }
+            button {
+                background-color:black;
+                color:white;
+                cursor:pointer;
+                flex-direction: row;
+                font-size:13px;
+                height:40px;
+                line-height:15px;
+                margin-top:15px;
+                outline-color:gray;
+                padding-left:30px;
+                padding-right:30px;
+                text-align:center;
+                width:100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <div id="dialog">
+                <section id="form">
+                    <h2>Add New Payment</h2>
+                    <p>
+                        Save your card to enable use on future purchases including while shopping in store. Remove this card from your account to stop this service.
+                    </p>
+                    <div id="note">* Required</div>
+                    <div id="fields">
+                        <div>
+                            <label for="name">* Name:</label>
+                            <div id="name"></div>
+                         </div>
+                        <div>
+                            <label for="number">* Number:</label>
+                            <div id="number"></div>
+                          </div>
+                         <div>
+                            <label for="expiration">* Expiration:</label>
+                            <div id="expiration"></div>
+                         </div>
+                         <div>
+                            <label for="cvv">* CVV:</label>
+                            <div id="cvv"></div>
+                         </div>
+                         <div>
+                            <button type="button" id="submitBtn" class="btn">Add Payment</button>
+                         </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <script type="text/javascript" src="https://test-api.payrix.com/payFieldsScript"></script>
+        <script> // Authentication
+        PayFields.config.apiKey = 'b02cccf027a40e8c980934cef32ebb3f';
+        PayFields.config.merchant = 't1_mer_6661e7aa344925941f40ec6';
+        PayFields.config.mode = 'token';
+        PayFields.config.txnType = '';
+        PayFields.config.amount = 100;
+        </script>
+        <script> // Form Field Connections
+            PayFields.fields = [
+               {
+                  type: "number",
+                  element: "#number",
+               },
+               {
+                  type: "name",
+                  element: "#name",
+               },
+               {
+                  type: "cvv",
+                  element: "#cvv",
+               },
+               {
+                  type: "expiration",
+                  element: "#expiration",
+               },
+              //  {
+              //     type: "address",
+              //     element: "#address",
+              //  }
+            ];
+        </script>
+        <script> // Submit Button Function
+            document.querySelector('#submitBtn').addEventListener('click', function() {
+              document.body.style.cursor = "wait";
+               PayFields.submit()
+            });
+
+            PayFields.onSuccess = function(response) {
+               console.log(response)
+              // alert('Payment Successful! ' + response)
+              var button = document.getElementById('submitBtn');
+              button.style.background='green';
+              button.textContent = "Payment Added";
+              document.body.style.cursor = "none";
+            }
+            PayFields.onFailure = function(err) {
+               console.log(err)
+               alert('Payment failed. Verify your payment method.')
+            }
+         </script>
+    </body>
+</html>
