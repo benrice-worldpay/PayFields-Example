@@ -335,11 +335,12 @@
       </section>
     </main>
     <script type="text/javascript" src="https://test-api.payrix.com/payFieldsScript"></script>
-    <script> // Authentication
-      const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-      console.log(apiKey);
-      PayFields.config.apiKey = '<API KEY>';
-      PayFields.config.merchant = '<MERCHANT ID>';
+    <!-- Read in the secrets file -->
+    <script  type="module">
+      import { apiKey } from './wp_secrets.js';
+      import { merchantID } from './wp_secrets.js';
+      PayFields.config.apiKey = apiKey;
+      PayFields.config.merchant = merchantID;
     </script>
     <script> // Transaction Settings
       PayFields.config.mode = 'txn';
