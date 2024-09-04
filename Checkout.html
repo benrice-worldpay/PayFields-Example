@@ -336,6 +336,8 @@
     </main>
     <script type="text/javascript" src="https://test-api.payrix.com/payFieldsScript"></script>
     <script> // Authentication
+      const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+      console.log(apiKey);
       PayFields.config.apiKey = '<API KEY>';
       PayFields.config.merchant = '<MERCHANT ID>';
     </script>
