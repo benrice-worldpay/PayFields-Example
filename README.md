@@ -23,10 +23,10 @@ PayFields documentation
 
 3. Create a wp_secrets.js file
 The file must include the following variable exports:
-```
-export const apiKey = '1446620766baada652f2efde74cdb672';
-export const merchantID = 't1_mer_6661e7aa344925941f40ec6';
-```
+   ```
+   export const apiKey = '1446620766baada652f2efde74cdb672';
+   export const merchantID = 't1_mer_6661e7aa344925941f40ec6';
+   ```
 
 ## Running the Application
 
