@@ -34,9 +34,11 @@ PayFields documentation
 ## Running the Application
 
 1. Start the npm server (or use another local host service)
-   a. Open a command prompt in the directory with the index.html file for this project
-   b. Run the command `http-server`
+   1. Open a command prompt in the directory with the index.html file for this project
+   2. Install npm server if it is not already `npm install http-server`
+   3. Run the command `http-server` to begin the server
 2. Open a browser to the hosted site. By default with the npm server this URL is "http://localhost:8000"
+3. Select the link on the index page for the web application
 
 ## Troubleshooting
 
