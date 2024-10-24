@@ -33,6 +33,7 @@
             {
                 align-items:center;
                 padding: 20px 0;
+                width: 50%;
             }
             .topNavItem
             {
@@ -41,6 +42,11 @@
             .topNavItem button
             {
                 background-color: transparent;
+                border-left: 0;
+                border-right: 0;
+                border-top: 0;
+                border-bottom-color: transparent;
+                cursor: pointer;
             }
             main
             {
@@ -58,7 +64,7 @@
                 <div id="secure-checkout">PlutoTech</div>
             </div>
             <nav aria-label="Site Navigation" id="topNav">
-                <ul style="justify-content: space-evenly;list-style:none;display:flec;">
+                <ul data-key-right="true" style="justify-content: space-evenly;list-style:none;display:flex;">
                     <li class="topNavItem"><button id="topNav-1">New</button></li>
                     <li class="topNavItem"><button id="topNav-2">Sale</button></li>
                     <li class="topNavItem"><button id="topNav-3">Women</button></li>
