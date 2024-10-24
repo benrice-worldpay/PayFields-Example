@@ -5,7 +5,7 @@
       html *
       {
         font-size: 1em;
-        color: #000;
+        color: (25, 26, 27);
         font-family: Arial;
       } 
     </style>
@@ -412,17 +412,18 @@
   <script> // Submit Button Function
     document.querySelector('#submitBtn').addEventListener('click', function() {
       document.body.style.cursor = "wait";
-       PayFields.submit()
+      PayFields.submit();
     });
   </script>
   <script> // Success Callback
     PayFields.onSuccess = function(response) {
-       console.log(response)
+      console.log(response)
       // alert('Payment Successful! ' + response)
-      var button = document.getElementById('submitBtn');
-      button.style.background='green';
-      button.textContent = "Order Successful";
-      document.body.style.cursor = "none";
+      // var button = document.getElementById('submitBtn');
+      // button.style.background='green';
+      // button.textContent = "Order Successful";
+      // document.body.style.cursor = "none";
+      window.location.href = "success.html";
     }
  </script>
  <script> // Failure Callback
