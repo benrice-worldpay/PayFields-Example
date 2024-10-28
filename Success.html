@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Success</title>
+        <style>
+            html *
+            {
+              font-size: 1em;
+              color: #000;
+              font-family: Arial;
+            }
+            #pluto_top
+            {
+                border-bottom: 1px solid #c2cbcd;
+                box-sizing: border-box;
+                color:black;
+                display:flex;
+                font-size: 16px;
+                padding-left: 20px;
+                padding-top: 20px important!;
+                position:relative;
+                width: 100%;
+            }
+
+            #secure-checkout
+            {
+                align-items: center;
+                display: flex;
+                font-weight: bold;
+                padding-left: 20px;
+            }
+            #topNav
+            {
+                align-items:center;
+                padding: 20px 0;
+                width: 50%;
+            }
+            .topNavItem
+            {
+                display:inline-block;
+            }
+            .topNavItem button
+            {
+                background-color: transparent;
+                border-left: 0;
+                border-right: 0;
+                border-top: 0;
+                border-bottom-color: transparent;
+                cursor: pointer;
+            }
+            main
+            {
+                background-color: white;
+                display: flex;
+                width:100%;
+                position:relative;
+            }
+          </style>
+    </head>
+    <body>
+        <div id="root">
+            <div id="pluto_top">
+                <div id="logo"><img src="images/SurfandSk2i.jpg" height="80" alt="Surf & Ski" /></div>
+                <div id="secure-checkout">PlutoTech</div>
+            </div>
+            <nav aria-label="Site Navigation" id="topNav">
+                <ul data-key-right="true" style="justify-content: space-evenly;list-style:none;display:flex;">
+                    <li class="topNavItem"><button id="topNav-1">New</button></li>
+                    <li class="topNavItem"><button id="topNav-2">Sale</button></li>
+                    <li class="topNavItem"><button id="topNav-3">Women</button></li>
+                    <li class="topNavItem"><button id="topNav-4">Men</button></li>
+                </ul>
+            </nav>
+            <main>
+                Your order has been successfully sent!
+            </main>
+        </div>
+    </body>
+</html>
